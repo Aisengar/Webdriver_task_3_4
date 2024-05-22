@@ -1,0 +1,20 @@
+{
+  "name": "webdriver-task-3",
+  "version": "1.0.0",
+  "description": "Test 3 and 4 ",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "mocha",
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "author": "Camilo Delgado",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/cli": "^8.37.0",
+    "@wdio/local-runner": "^8.37.0",
+    "@wdio/mocha-framework": "^8.37.0",
+    "@wdio/spec-reporter": "^8.37.0",
+    "@wdio/visual-service": "^4.1.2"
+  }
+}
