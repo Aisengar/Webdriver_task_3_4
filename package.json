@@ -6,7 +6,7 @@
   "type": "commonjs",
   "scripts": {
     "test": "mocha",
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./src/config/wdio.conf.js"
   },
   "author": "Camilo Delgado",
   "license": "ISC",
