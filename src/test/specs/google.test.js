@@ -5,6 +5,7 @@ describe('Task 3 and 4 for google cloud', () => {
         await browser.throttleCPU(2)
     })
     afterEach(async () => {
+        await browser.deleteCookies()
         await browser.reloadSession()
     })
 
@@ -12,13 +13,17 @@ describe('Task 3 and 4 for google cloud', () => {
         
         it('serch for Google Cloud Platform Pricing Calculator ', async () => {
             //Opening the Google search aplication on the web
+            await browser.deleteCookies();
             const googleSerchClick = await $('[class="YSM5S"]');
             await googleSerchClick.click();
+            
+
             // placing the input in the search field and pressing enter
+            await browser.deleteCookies();
             const googleSerchInput = await $('[class="mb2a7b"]');
             await googleSerchInput.setValue('Google Cloud Platform Pricing Calculator');
             await browser.keys('Enter');
-            
+
             //find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
             const calculatorLink = await browser.$("//a[contains(@href, 'products/calculator') and contains(@class, 'gs-title')]");
             await calculatorLink.click();
@@ -41,11 +46,13 @@ describe('Task 3 and 4 for google cloud', () => {
             await numberOfInstances.setValue(4)
             
 
-             //cheking that operating sistem is free
-             const dropdownOpener = await $('//div[contains(@data-field-input-type, "2")]');
-             await dropdownOpener.click();
-             await browser.pause(5000)
+            //cheking that operating sistem is free
+            const dropdownOpener = await $('//div[contains(@data-field-input-type, "2")]');
+            await dropdownOpener.click();
+            const optionElement = await $(`//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)") and contains(@class, "MCs1Pd HiC7Nc VfPpkd-OkbHre VfPpkd-aJasdd-RWgCYc-wQNmvb VfPpkd-rymPhb-ibnC6b VfPpkd-rymPhb-ibnC6b-OWXEXe-gk6SMd VfPpkd-rymPhb-ibnC6b-OWXEXe-SfQLQb-Woal0c-RWgCYc")]`);
+            await optionElement.click();
 
+<<<<<<< HEAD
             //cheking that operating sistem is free
             const dropeddownOpener = await $('//div[contains(@data-field-input-type, "2")]');
             await dropeddownOpener.click();
@@ -53,6 +60,8 @@ describe('Task 3 and 4 for google cloud', () => {
             const optionElement = await $(`//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)") and contains(@class, "MCs1Pd HiC7Nc VfPpkd-OkbHre VfPpkd-aJasdd-RWgCYc-wQNmvb VfPpkd-rymPhb-ibnC6b VfPpkd-rymPhb-ibnC6b-OWXEXe-gk6SMd VfPpkd-rymPhb-ibnC6b-OWXEXe-SfQLQb-Woal0c-RWgCYc")]`);
             await optionElement.click();
 
+=======
+>>>>>>> 92bec8990df4dcf1fbf5a8c0a9102299b7473a75
             // click on the "regular" radio button
             const regularLabel = await $('//label[text()="Regular"]');
             await regularLabel.click();
@@ -62,6 +71,7 @@ describe('Task 3 and 4 for google cloud', () => {
             await machineType.click();
             const machineTypeOption = await $('//li[contains(@data-value, "n1-standard-8")]');
             await machineTypeOption.click();
+<<<<<<< HEAD
             
 
             //click on the "Add GPUs" button
@@ -89,6 +99,18 @@ describe('Task 3 and 4 for google cloud', () => {
             await SSDOption.click();
 
             await browser.pause(8000)
+=======
+
+            //click on the "Add GPUs" button
+            const addGPUs = await $('(//div[@class="AsBIyb"]//div[@jscontroller="hAACQ"])[3]//button[@jsname="DMn7nd"]');
+            await addGPUs.click();
+
+            
+            
+
+
+            await browser.pause(5000)
+>>>>>>> 92bec8990df4dcf1fbf5a8c0a9102299b7473a75
         })
      
 /*
