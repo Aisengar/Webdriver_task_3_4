@@ -11,108 +11,81 @@ describe('Task 3 and 4 for google cloud', () => {
 
     describe('Task 3 and 4 for google cloud', () => {
         
-        it('serch for Google Cloud Platform Pricing Calculator ', async () => {
-            //Opening the Google search aplication on the web
+        it('test the selection options for the dropdown', async () => {
+            // Opening the Google search application on the web
             await browser.deleteCookies();
-            const googleSerchClick = await $('[class="YSM5S"]');
-            await googleSerchClick.click();
-            
-
-            // placing the input in the search field and pressing enter
-            await browser.deleteCookies();
-            const googleSerchInput = await $('[class="mb2a7b"]');
-            await googleSerchInput.setValue('Google Cloud Platform Pricing Calculator');
+            const googleSearchClick = await $('[class="YSM5S"]');
+            await googleSearchClick.click();
+    
+            // Placing the input in the search field and pressing enter
+            const googleSearchInput = await $('[class="mb2a7b"]');
+            await googleSearchInput.setValue('Google Cloud Platform Pricing Calculator');
             await browser.keys('Enter');
-
-            //find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
+    
+            // Find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
             const calculatorLink = await browser.$("//a[contains(@href, 'products/calculator') and contains(@class, 'gs-title')]");
             await calculatorLink.click();
-
-            // click on the "Add to estimate" button
-            const addToEstimate = await $('[class="AeBiU-LgbsSe AeBiU-LgbsSe-OWXEXe-Bz112c-M1Soyc AeBiU-LgbsSe-OWXEXe-dgl2Hf VVEJ3d"]')
-            await addToEstimate.click()
-
-            
-            // click om the "Compute engine" section button
-            const computeEngine = await $('//div[contains(@class, "wrzENe")]//div[contains(@class, "d5NbRd-EScbFb-JIbuQc PtwYlf")]')
+    
+            // Click on the "Add to estimate" button
+            const addToEstimate = await $('[class="AeBiU-LgbsSe AeBiU-LgbsSe-OWXEXe-Bz112c-M1Soyc AeBiU-LgbsSe-OWXEXe-dgl2Hf VVEJ3d"]');
+            await addToEstimate.click();
+    
+            // Click on the "Compute engine" section button
+            const computeEngine = await $('//div[contains(@class, "wrzENe")]//div[contains(@class, "d5NbRd-EScbFb-JIbuQc PtwYlf")]');
             await computeEngine.waitForClickable({ timeout: 2000 });
-            await computeEngine.click()
-
-            // add the number of instances to 4
-            const waitdisplayedMenu = await $('[class="vHartc"]')
-            await waitdisplayedMenu.waitForDisplayed(2000)
-
-            const numberOfInstances = await $('[id="c11"]')
-            await numberOfInstances.setValue(4)
-            
-
-            //cheking that operating sistem is free
+            await computeEngine.click();
+    
+            // Add the number of instances to 4
+            const waitDisplayedMenu = await $('[class="vHartc"]');
+            await waitDisplayedMenu.waitForDisplayed({ timeout: 2000 });
+    
+            const numberOfInstances = await $('[id="c11"]');
+            await numberOfInstances.setValue(4);
+    
+            // Checking that operating system is free
             const dropdownOpener = await $('//div[contains(@data-field-input-type, "2")]');
             await dropdownOpener.click();
-            const optionElement = await $(`//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)") and contains(@class, "MCs1Pd HiC7Nc VfPpkd-OkbHre VfPpkd-aJasdd-RWgCYc-wQNmvb VfPpkd-rymPhb-ibnC6b VfPpkd-rymPhb-ibnC6b-OWXEXe-gk6SMd VfPpkd-rymPhb-ibnC6b-OWXEXe-SfQLQb-Woal0c-RWgCYc")]`);
+    
+            const optionElement = await $(`//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)")]`);
             await optionElement.click();
-
-<<<<<<< HEAD
-            //cheking that operating sistem is free
-            const dropeddownOpener = await $('//div[contains(@data-field-input-type, "2")]');
-            await dropeddownOpener.click();
-            
-            const optionElement = await $(`//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)") and contains(@class, "MCs1Pd HiC7Nc VfPpkd-OkbHre VfPpkd-aJasdd-RWgCYc-wQNmvb VfPpkd-rymPhb-ibnC6b VfPpkd-rymPhb-ibnC6b-OWXEXe-gk6SMd VfPpkd-rymPhb-ibnC6b-OWXEXe-SfQLQb-Woal0c-RWgCYc")]`);
-            await optionElement.click();
-
-=======
->>>>>>> 92bec8990df4dcf1fbf5a8c0a9102299b7473a75
-            // click on the "regular" radio button
+    
+            // Click on the "regular" radio button
             const regularLabel = await $('//label[text()="Regular"]');
             await regularLabel.click();
-
-            //click on the machine type and select n1-standard-8
+    
+            // Click on the machine type and select n1-standard-8
             const machineType = await $('(//div[contains(@class,"O1htCb-H9tDt PPUDSe t8xIwc")])[4]//div[contains(@class, "VfPpkd-TkwUic")]');
             await machineType.click();
             const machineTypeOption = await $('//li[contains(@data-value, "n1-standard-8")]');
             await machineTypeOption.click();
-<<<<<<< HEAD
-            
+    
+            // Click on the "Add GPUs" button
+            const addGPUsButton = await $('(//div[@class="AsBIyb"]//div[@jscontroller="hAACQ"])[3]//button[@jsname="DMn7nd"]');
+            await addGPUsButton.click();
+            await browser.pause(2000)
 
-            //click on the "Add GPUs" button
-            const addGPUsBotton = await $('(//div[@class="AsBIyb"]//div[@jscontroller="hAACQ"])[3]//button[@jsname="DMn7nd"]');
-            await addGPUsBotton.click();
-            await browser.pause(1000)
-
-            // Click to open the GPU model dropdown
-            const gpuModelDropdownOpener = await $('(//div[contains(@data-field-input-type,"2")])[2]');
-            await gpuModelDropdownOpener.click();
-
-            // Click on the desired option in the dropdown
+            // Interact with the GPU model dropdown
+            const gpuModelDropdown = await $('(//div[contains(@jsaction,"bITzcd:KRVFmb;iFFCZc:Y0y4c;Rld2oe:gDkf4c;EDR5Je:QdOKJc;FzgWvd:RFVo1b")])[8]');
+            await gpuModelDropdown.waitForClickable({ timeout: 1000 })
+            await gpuModelDropdown.click();
             const gpuModelTypeOption = await $('//li[contains(@data-value, "nvidia-tesla-p100")]');
             await gpuModelTypeOption.click();
-
-            
+    
+            // Test the selection options for the dropdown
             const localSSDDropdownOpener = await $('(//div[contains(@data-field-input-type,"2")])[4]');
-            await localSSDDropdownOpener.click()
-            await browser.pause(1000); 
+            await localSSDDropdownOpener.click();
             
-            //selecting the "2x375 GB" option 
+            // Ensure the dropdown is fully open
+            await browser.pause(1000);
+
+            // Check if the dropdown option is visible and clickable
             const SSDOption = await $('//li[@data-value="2" and contains(.//span[@jsname="K4r5Ff"], "2x375 GB")]');
             await SSDOption.scrollIntoView(); // Scroll the element into view if necessary
-            await SSDOption.waitForClickable({ timeout: 5000 });
+            await SSDOption.waitForClickable({ timeout: 10000 });
             await SSDOption.click();
-
-            await browser.pause(8000)
-=======
-
-            //click on the "Add GPUs" button
-            const addGPUs = await $('(//div[@class="AsBIyb"]//div[@jscontroller="hAACQ"])[3]//button[@jsname="DMn7nd"]');
-            await addGPUs.click();
-
-            
-            
-
-
-            await browser.pause(5000)
->>>>>>> 92bec8990df4dcf1fbf5a8c0a9102299b7473a75
-        })
-     
+   
+            await browser.pause(8000);
+        });
 /*
         it("test the selection options for the dropdawn",async()=>{
                         // click to open the localSSD Dropdawn
