@@ -83,6 +83,20 @@ describe('Task 3 and 4 for google cloud', () => {
             await SSDOption.scrollIntoView(); // Scroll the element into view if necessary
             await SSDOption.waitForClickable({ timeout: 10000 });
             await SSDOption.click();
+
+            //Open the region dropdown options and selecting the "Frankfurt (europe-west3)"
+            //Open the region dropdown options by clicking on the dropdown opener
+            const regionDropdownOpener = await $('[data-field-type="115"]');
+            await regionDropdownOpener.click();
+
+            // Add a small pause to ensure the dropdown options are fully loaded
+            await browser.pause(1000);
+
+            // Find and select the "Frankfurt (europe-west3)" option
+            const regionOption = await $('//li[@data-value = "europe-west3"]');
+            await regionOption.waitForClickable({ timeout: 10000 });
+            await regionOption.click();
+            
    
             await browser.pause(8000);
         });
