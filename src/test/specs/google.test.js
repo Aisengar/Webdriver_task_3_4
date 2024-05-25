@@ -84,7 +84,7 @@ describe('Task 3 and 4 for google cloud', () => {
             await SSDOption.waitForClickable({ timeout: 10000 });
             await SSDOption.click();
 
-            //Open the region dropdown options and selecting the "Frankfurt (europe-west3)"
+            
             //Open the region dropdown options by clicking on the dropdown opener
             const regionDropdownOpener = await $('[data-field-type="115"]');
             await regionDropdownOpener.click();
@@ -92,10 +92,17 @@ describe('Task 3 and 4 for google cloud', () => {
             // Add a small pause to ensure the dropdown options are fully loaded
             await browser.pause(1000);
 
-            // Find and select the "Frankfurt (europe-west3)" option
-            const regionOption = await $('//li[@data-value = "europe-west3"]');
+            // Select the "us-west1" region
+            //const regionOption = await $('//li[@data-value = "europe-west3"]');
+            const regionOption = await $('//li[@data-value = "us-west1"]');
             await regionOption.waitForClickable({ timeout: 10000 });
             await regionOption.click();
+
+            
+            //Click on the Committed use "1 Year" button
+            const commitedUsedbutton = await $('(//div[contains(@class, "e2WL2b") and .//input[@name="116"]])[2]');
+            await commitedUsedbutton.waitForClickable({ timeout: 10000 });
+            await commitedUsedbutton.click();
             
    
             await browser.pause(8000);
