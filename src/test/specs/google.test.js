@@ -131,7 +131,49 @@ describe('Task 3 and 4 for google cloud', () => {
             const handles = await browser.getWindowHandles()
             await browser.switchToWindow(handles[1])
 
+            //validating the infromation provided
+
             await browser.pause(8000);
+
+            const summarySelectors = {
+                serviceType: await $('//span[text()="Service type"]/following-sibling::span').getText(),
+                instanceTime: await $('//span[text()="Instance-time"]/following-sibling::span').getText(),
+                machineType: await $('//span[text()="Machine type"]/following-sibling::span').getText(),
+                gpuModel: await $('//span[text()="GPU Model"]/following-sibling::span').getText(),
+                numberOfGPUs: await $('//span[text()="Number of GPUs"]/following-sibling::span').getText(),
+                localSSD: await $('//span[text()="Local SSD"]/following-sibling::span').getText(),
+                region: await $('//span[text()="Region"]/following-sibling::span').getText(),
+                committedUse: await $('//span[text()="Committed use discount options"]/following-sibling::span').getText(),
+                numberOfInstances: await $('//span[text()="Number of Instances"]/following-sibling::span').getText(),
+                osSoftware: await $('//span[text()="Operating System / Software"]/following-sibling::span').getText(),
+                provisioningModel: await $('//span[text()="Provisioning Model"]/following-sibling::span').getText()
+            };
+            console.log(summarySelectors)
+    
+            const expectedValues = {
+                
+                serviceType: 'Instances',
+                instanceTime: '2920 Hours',
+                machineType: 'n1-standard-8, vCPUs: 8, RAM: 30 GB',
+                gpuModel: 'NVIDIA TESLA P100',
+                numberOfGPUs: '1',
+                localSSD: '2x375 GB',
+                region: 'Oregon (us-west1)',
+                committedUse: '1 year',
+                numberOfInstances: '4',
+                osSoftware: 'Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)',
+                provisioningModel: 'Regular'
+            };
+            
+            for(const [key, selector] of Object.entries(summarySelectors)){
+                const element = await $(selector);
+                const elementText = await element.getText();
+                if(elementText !== expectedValues){
+                    throw new Error(`The value for ${key} does not match. Expected:${expectedValues[key]}, Found:${elementText}`);
+                }
+
+            }
+            
         });
 /*
         it("test the selection options for the dropdawn",async()=>{
