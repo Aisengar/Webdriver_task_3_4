@@ -128,6 +128,8 @@ describe('Task 3 and 4 for google cloud', () => {
             const totalEstimatedCost = await $('[aria-label="Open detailed view"]');
             await totalEstimatedCost.click();
 
+            const handles = await browser.getWindowHandles()
+            await browser.switchToWindow(handles[1])
 
             await browser.pause(8000);
         });
