@@ -1,8 +1,7 @@
-
 describe('Task 3 and 4 for google cloud', () => {
     beforeEach(async () => {
         await browser.url('https://cloud.google.com/?hl=es')
-        await browser.throttleCPU(2)
+        
     })
     afterEach(async () => {
         await browser.deleteCookies()
@@ -98,36 +97,60 @@ describe('Task 3 and 4 for google cloud', () => {
             await regionOption.waitForClickable({ timeout: 10000 });
             await regionOption.click();
 
-            
+
             //Click on the Committed use "1 Year" button
             const commitedUsedbutton = await $('(//div[contains(@class, "e2WL2b") and .//input[@name="116"]])[2]');
             await commitedUsedbutton.waitForClickable({ timeout: 10000 });
             await commitedUsedbutton.click();
-            
-   
+
+            await browser.pause(1000);
+
+            //cheking the praice is caclulated in the correct section
+            const pricerightmenu = await $('//div[contains(@class,"fbc2ib")]//label').getText();
+            const pricepriceTopMenuText = await await $('//div[contains(@class,"egBpsb")]//span').getText();
+            //console.log(pricerightmenu);
+            //console.log(pricepriceTopMenuText);
+
+            // press the share button and check the total price
+            const sharedisplayed = await $('//div[contains(@jsaction, "JIbuQc:qsxFwf")]//button[contains(@aria-label, "Open Share Estimate dialog")]');
+            await sharedisplayed.click();
+
+            //get the total from the share menue
+            await $('[class="ZgevAb"]').waitForDisplayed({ timeout: 2000 });
+            totalsharedprice = await $('[class="ZgevAb"]').getText();
+            console.log(totalsharedprice);
+
+            //close the share button
+            const closeSharedButton = await $('//div[contains(@class, "bwApif-P5QLlc")]//button');
+            await closeSharedButton.click();
+
+            //open the Total estimated cost section
+            const totalEstimatedCost = await $('[aria-label="Open detailed view"]');
+            await totalEstimatedCost.click();
+
+
             await browser.pause(8000);
         });
 /*
         it("test the selection options for the dropdawn",async()=>{
-                        // click to open the localSSD Dropdawn
-            const localSSDDropdownOpener = await $('(//div[contains(@data-field-input-type,"2")])[4]');
-            await localSSDDropdownOpener.click();
-            
-            // Ensure the dropdown is fully open
-            await browser.pause(1000); // Add a small pause to ensure the dropdown is fully open
-            
-            // Check if the dropdown option is visible and clickable
-            const SSDOption = await $('//li[@data-value="2" and contains(.//span[@jsname="K4r5Ff"], "2x375 GB")]');
-            await SSDOption.scrollIntoView(); // Scroll the element into view if necessary
-            await SSDOption.waitForClickable({ timeout: 10000 }); // Extend the timeout for ensuring it's clickable
-            await SSDOption.click();
 
-        await browser.pause(8000);
-            
-            await browser.pause(8000)
+            // press the share button and check the total price
+            const sharedisplayed = await $('//div[contains(@jsaction, "JIbuQc:qsxFwf")]//button[contains(@aria-label, "Open Share Estimate dialog")]');
+            await sharedisplayed.click();
 
-        })
-        */
+            //get the total from the share menue
+            await $('[class="ZgevAb"]').waitForDisplayed({ timeout: 2000 });
+            totalsharedprice = await $('[class="ZgevAb"]').getText();
+            console.log(totalsharedprice);
+
+            //close the share button
+            const closeSharedButton = await $('//div[contains(@class, "bwApif-P5QLlc")]//button');
+            await closeSharedButton.click();
+
+            await browser.pause(8000);
+            
+
+        })*/
     })
 })
 
