@@ -133,20 +133,20 @@ describe('Task 3 and 4 for google cloud', () => {
 
             //validating the infromation provided
 
-            await browser.pause(8000);
+            await browser.pause(1000);
 
             const summarySelectors = {
-                serviceType: await $('//span[text()="Service type"]/following-sibling::span').getText(),
-                instanceTime: await $('//span[text()="Instance-time"]/following-sibling::span').getText(),
-                machineType: await $('//span[text()="Machine type"]/following-sibling::span').getText(),
-                gpuModel: await $('//span[text()="GPU Model"]/following-sibling::span').getText(),
-                numberOfGPUs: await $('//span[text()="Number of GPUs"]/following-sibling::span').getText(),
-                localSSD: await $('//span[text()="Local SSD"]/following-sibling::span').getText(),
-                region: await $('//span[text()="Region"]/following-sibling::span').getText(),
-                committedUse: await $('//span[text()="Committed use discount options"]/following-sibling::span').getText(),
-                numberOfInstances: await $('//span[text()="Number of Instances"]/following-sibling::span').getText(),
-                osSoftware: await $('//span[text()="Operating System / Software"]/following-sibling::span').getText(),
-                provisioningModel: await $('//span[text()="Provisioning Model"]/following-sibling::span').getText()
+                serviceType:'//span[text()="Service type"]/following-sibling::span',
+                instanceTime:'//span[text()="Instance-time"]/following-sibling::span',
+                machineType:'//span[text()="Machine type"]/following-sibling::span',
+                gpuModel:'//span[text()="GPU Model"]/following-sibling::span',
+                numberOfGPUs:'//span[text()="Number of GPUs"]/following-sibling::span',
+                localSSD:'//span[text()="Local SSD"]/following-sibling::span',
+                region:'//span[text()="Region"]/following-sibling::span',
+                committedUse:'//span[text()="Committed use discount options"]/following-sibling::span',
+                numberOfInstances:'//span[text()="Number of Instances"]/following-sibling::span',
+                osSoftware:'//span[text()="Operating System / Software"]/following-sibling::span',
+                provisioningModel:'//span[text()="Provisioning Model"]/following-sibling::span'
             };
             console.log(summarySelectors)
     
@@ -167,11 +167,7 @@ describe('Task 3 and 4 for google cloud', () => {
             
             for(const [key, selector] of Object.entries(summarySelectors)){
                 const element = await $(selector);
-                const elementText = await element.getText();
-                if(elementText !== expectedValues){
-                    throw new Error(`The value for ${key} does not match. Expected:${expectedValues[key]}, Found:${elementText}`);
-                }
-
+                await expect(element).toHaveText(expectedValues[key]);
             }
             
         });
