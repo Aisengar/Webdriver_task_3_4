@@ -12,27 +12,28 @@ describe('Task 3 and 4 for google cloud', () => {
         
         it('test the selection options for the dropdown', async () => {
             // Opening the Google search application on the web
-            await browser.deleteCookies();
             const googleSearchClick = await $('[class="YSM5S"]');
             await googleSearchClick.click();
     
+            //create a POM for this page
             // Placing the input in the search field and pressing enter
             const googleSearchInput = await $('[class="mb2a7b"]');
             await googleSearchInput.setValue('Google Cloud Platform Pricing Calculator');
-            await browser.keys('Enter');
-    
+            await browser.keys('Enter'); //open a diferent serching page https://cloud.google.com/s/results?q=Google%20Cloud%20Pricing%20Calculator&text=Google%20Cloud%20Pricing%20Calculator
+
             // Find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
             const calculatorLink = await browser.$("//a[contains(@href, 'products/calculator') and contains(@class, 'gs-title')]");
-            await calculatorLink.click();
+            await calculatorLink.click();//open another page add to estimate https://cloud.google.com/products/calculator?hl=es
     
-            // Click on the "Add to estimate" button
+            //Create a POM for this page
+            // Click on the "Add to estimate" button 
             const addToEstimate = await $('[class="AeBiU-LgbsSe AeBiU-LgbsSe-OWXEXe-Bz112c-M1Soyc AeBiU-LgbsSe-OWXEXe-dgl2Hf VVEJ3d"]');
-            await addToEstimate.click();
+            await addToEstimate.click();//oppen an options menue, create the Component for this part
     
             // Click on the "Compute engine" section button
             const computeEngine = await $('//div[contains(@class, "wrzENe")]//div[contains(@class, "d5NbRd-EScbFb-JIbuQc PtwYlf")]');
             await computeEngine.waitForClickable({ timeout: 2000 });
-            await computeEngine.click();
+            await computeEngine.click();//oppen the selectors for the pricing // create the Component for this part
     
             // Add the number of instances to 4
             const waitDisplayedMenu = await $('[class="vHartc"]');
@@ -74,7 +75,6 @@ describe('Task 3 and 4 for google cloud', () => {
             const localSSDDropdownOpener = await $('(//div[contains(@data-field-input-type,"2")])[4]');
             await localSSDDropdownOpener.click();
             
-            // Ensure the dropdown is fully open
             await browser.pause(1000);
 
             // Check if the dropdown option is visible and clickable
@@ -88,7 +88,6 @@ describe('Task 3 and 4 for google cloud', () => {
             const regionDropdownOpener = await $('[data-field-type="115"]');
             await regionDropdownOpener.click();
 
-            // Add a small pause to ensure the dropdown options are fully loaded
             await browser.pause(1000);
 
             // Select the "us-west1" region
@@ -113,7 +112,7 @@ describe('Task 3 and 4 for google cloud', () => {
 
             // press the share button and check the total price
             const sharedisplayed = await $('//div[contains(@jsaction, "JIbuQc:qsxFwf")]//button[contains(@aria-label, "Open Share Estimate dialog")]');
-            await sharedisplayed.click();
+            await sharedisplayed.click();//open a new menu share / create a component Pom for this
 
             //get the total from the share menue
             await $('[class="ZgevAb"]').waitForDisplayed({ timeout: 2000 });
@@ -122,11 +121,12 @@ describe('Task 3 and 4 for google cloud', () => {
 
             //close the share button
             const closeSharedButton = await $('//div[contains(@class, "bwApif-P5QLlc")]//button');
-            await closeSharedButton.click();
+            await closeSharedButton.click();//close the menue share
 
+            //Create a new page POM for this
             //open the Total estimated cost section
             const totalEstimatedCost = await $('[aria-label="Open detailed view"]');
-            await totalEstimatedCost.click();
+            await totalEstimatedCost.click();// open a new page total estimated 
 
             const handles = await browser.getWindowHandles()
             await browser.switchToWindow(handles[1])
@@ -171,26 +171,6 @@ describe('Task 3 and 4 for google cloud', () => {
             }
             
         });
-/*
-        it("test the selection options for the dropdawn",async()=>{
-
-            // press the share button and check the total price
-            const sharedisplayed = await $('//div[contains(@jsaction, "JIbuQc:qsxFwf")]//button[contains(@aria-label, "Open Share Estimate dialog")]');
-            await sharedisplayed.click();
-
-            //get the total from the share menue
-            await $('[class="ZgevAb"]').waitForDisplayed({ timeout: 2000 });
-            totalsharedprice = await $('[class="ZgevAb"]').getText();
-            console.log(totalsharedprice);
-
-            //close the share button
-            const closeSharedButton = await $('//div[contains(@class, "bwApif-P5QLlc")]//button');
-            await closeSharedButton.click();
-
-            await browser.pause(8000);
-            
-
-        })*/
     })
 })
 
