@@ -26,9 +26,23 @@ class EstimatedPage {
     async verifySummaryValues() {
         for (const [key, selector] of Object.entries(this.summarySelectors)) {
             const element = await $(selector);
-            await expect(element).toHaveText(this.testdata[key]);
+            await element.waitForExist({ timeout: 5000 });
+            const text = await element.getText();
+
+            // Special handling for total cost comparison
+            if (key === 'totalCost') {
+                const totalCostValue = text.match(/USD (\d+\.\d+)/)[1];
+                if (totalCostValue !== testdata.totalcost) {
+                    throw new Error(`Expected total cost to be "${testdata.totalcost}" but found "${totalCostValue}"`);
+                }
+            } else {
+                if (text !== testdata[key]) {
+                    throw new Error(`Expected ${key} to be "${testdata[key]}" but found "${text}"`);
+                }
+            }
         }
     }
 }
+
 
 module.exports = new EstimatedPage();

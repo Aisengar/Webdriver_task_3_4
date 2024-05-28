@@ -2,6 +2,7 @@ const GoogleHomePage = require('../../po/page/cloud_google.page')
 const GoogleSerchPage = require('../../po/page/cloud_google_serch.page')
 const PricingCalculatorPage = require('../../po/page/cloud_google_add.page')
 const EstimatedPage = require('../../po/page/cloud_google_estimate.page')
+const { testdata } = require('../../po/data/test.data');
 
 describe('Task 3 and 4 for google cloud', () => {
     beforeEach(async () => {
@@ -24,7 +25,7 @@ describe('Task 3 and 4 for google cloud', () => {
             // Wait for the menu to be displayed
             await PricingCalculatorPage.SelectionMenue();
             //add the number of instances to 4
-            await PricingCalculatorPage.numberOfInstancesOption(4);
+            await PricingCalculatorPage.numberOfInstancesOption(testdata.numberOfInstances);
             // Checking that the operating system is free
             await PricingCalculatorPage.softwareDropDownClick();
             // Click on the "regular" radio button
@@ -45,7 +46,6 @@ describe('Task 3 and 4 for google cloud', () => {
             await PricingCalculatorPage.pagePricesTotal();
             // Press the share button and check the total price
             await PricingCalculatorPage.shareButtonOpener();
-            console.log(PricingCalculatorPage.shareButtonOpener()+"buscame aqui");
             // Open the Total estimated cost section
             await PricingCalculatorPage.OpenEstimatedCost();
             // Switch to the new window

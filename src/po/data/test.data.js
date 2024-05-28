@@ -7,7 +7,8 @@ const testdata = {
     committedUse: '1 year',
     numberOfInstances: '4',
     osSoftware: 'Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)',
-    provisioningModel: 'Regular'
+    provisioningModel: 'Regular',
+    totalcost: ''
 };
 
 module.exports = { testdata };

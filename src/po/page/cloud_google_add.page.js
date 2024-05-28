@@ -1,5 +1,6 @@
 const ComputeEngine = require('../../po/components/computeEnging.component')
 const SharedWindowDisplay = require('../../po/components/shareddisplay.component')
+const { testdata } = require('../../po/data/test.data');
 class PricingCalculatorPage {
 
     get addToEstimateButton() { return $('[class="AeBiU-LgbsSe AeBiU-LgbsSe-OWXEXe-Bz112c-M1Soyc AeBiU-LgbsSe-OWXEXe-dgl2Hf VVEJ3d"]'); }
@@ -86,11 +87,11 @@ class PricingCalculatorPage {
         
     }
     async pagePricesTotal() {
-        await this.priceSideMenu.getText();
+        await browser.pause(1000);
         await this.PriceTopMenu.getText();
-        if(this.PriceTopMenu!==this.priceSideMenu){
-            console.log("Prices are not equal")
-        }
+        await this.PriceTopMenu.waitForExist({ timeout: 5000 });
+        const totalCostText = await this.PriceTopMenu.getText();
+        testdata.totalcost = totalCostText;
     }
     async shareButtonOpener() {
         await SharedWindowDisplay.OpenSharedWindow();
