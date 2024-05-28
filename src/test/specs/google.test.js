@@ -27,12 +27,10 @@ describe('Task 3 and 4 for google cloud', () => {
             await PricingCalculatorPage.numberOfInstancesOption(4);
             // Checking that the operating system is free
             await PricingCalculatorPage.softwareDropDownClick();
-            await PricingCalculatorPage.softwareOptionClick();
             // Click on the "regular" radio button
             await PricingCalculatorPage.regularRadioClick();
             // Click on the machine type and select n1-standard-8
             await PricingCalculatorPage.machineTypeClick();
-            await PricingCalculatorPage.machineTypeOptionClick();
             // Click on the "Add GPUs" button
             await PricingCalculatorPage.addGPUsButtonClick();
             // Interact with the GPU model dropdown

@@ -1,5 +1,7 @@
+const {testdata} = require('../../po/data/test.data.js');
+
 class EstimatedPage {
-    constructor(testdata) {
+    constructor() {
         this.summarySelectors = {
             serviceType: '//span[text()="Service type"]/following-sibling::span',
             instanceTime: '//span[text()="Instance-time"]/following-sibling::span',
@@ -14,19 +16,7 @@ class EstimatedPage {
             provisioningModel: '//span[text()="Provisioning Model"]/following-sibling::span'
         };
 
-        this.testdata = {
-            serviceType: 'Instances',
-            instanceTime: '2920 Hours',
-            machineType: 'n1-standard-8, vCPUs: 8, RAM: 30 GB',
-            gpuModel: 'NVIDIA TESLA P100',
-            numberOfGPUs: '1',
-            localSSD: '2x375 GB',
-            region: 'Oregon (us-west1)',
-            committedUse: '1 year',
-            numberOfInstances: '4',
-            osSoftware: 'Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)',
-            provisioningModel: 'Regular'
-        };
+        this.testdata = testdata;
     }
 
     async OpenEstimatedWindow() { 

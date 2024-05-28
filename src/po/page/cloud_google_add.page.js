@@ -38,8 +38,7 @@ class PricingCalculatorPage {
     async softwareDropDownClick() {
         await this.softwareDropDown.waitForExist({ timeout: 2000 })
         await this.softwareDropDown.click()
-    }
-    async softwareOptionClick() {
+        await browser.pause(500)
         await this.softwareOption.waitForExist({ timeout: 2000 })
         await this.softwareOption.click()
     }
@@ -50,11 +49,11 @@ class PricingCalculatorPage {
     async machineTypeClick() {
         await this.machineType.waitForExist({ timeout: 2000 })
         await this.machineType.click()
-    }
-    async machineTypeOptionClick() {
+        await browser.pause(500)
         await this.machineTypeOption.waitForExist({ timeout: 2000 })
         await this.machineTypeOption.click()
     }
+
     async addGPUsButtonClick() {
         await this.addGPUsButton.waitForExist({ timeout: 2000 })
         await this.addGPUsButton.click()
@@ -63,6 +62,7 @@ class PricingCalculatorPage {
     async gpuTypeDropdownClick() {
         await this.gpuModelDropdown.waitForExist({ timeout: 2000 })
         await this.gpuModelDropdown.click()
+        await browser.pause(500)
         await this.gpuModelTypeOption.waitForExist({ timeout: 2000 })
         await this.gpuModelTypeOption.click()
     }
