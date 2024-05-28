@@ -3,8 +3,6 @@ const {testdata} = require('../../po/data/test.data.js');
 class EstimatedPage {
     constructor() {
         this.summarySelectors = {
-            serviceType: '//span[text()="Service type"]/following-sibling::span',
-            instanceTime: '//span[text()="Instance-time"]/following-sibling::span',
             machineType: '//span[text()="Machine type"]/following-sibling::span',
             gpuModel: '//span[text()="GPU Model"]/following-sibling::span',
             numberOfGPUs: '//span[text()="Number of GPUs"]/following-sibling::span',

@@ -1,6 +1,4 @@
 const testdata = {
-    serviceType: 'Instances',
-    instanceTime: '2920 Hours',
     machineType: 'n1-standard-8, vCPUs: 8, RAM: 30 GB',
     gpuModel: 'NVIDIA TESLA P100',
     numberOfGPUs: '1',
