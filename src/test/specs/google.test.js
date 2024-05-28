@@ -1,4 +1,5 @@
 const GoogleHomePage = require('../../po/page/cloud_google.page')
+const GoogleSerchPage = require('../../po/page/cloud_google_serch.page')
 
 describe('Task 3 and 4 for google cloud', () => {
     beforeEach(async () => {
@@ -15,12 +16,10 @@ describe('Task 3 and 4 for google cloud', () => {
         it('Task 3 for google cloud page', async () => {
             // Opening the Google search application on the home page
             await GoogleHomePage.serch('Google Cloud Platform Pricing Calculator');
-            
-            // Find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
-            const calculatorLink = await browser.$("//a[contains(@href, 'products/calculator') and contains(@class, 'gs-title')]");
-            await calculatorLink.waitForExist();
-            await calculatorLink.click();
 
+            // Find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
+            await GoogleSerchPage.openCalculatorLink();
+            
             // Click on the "Add to estimate" button 
             const addToEstimate = await $('[class="AeBiU-LgbsSe AeBiU-LgbsSe-OWXEXe-Bz112c-M1Soyc AeBiU-LgbsSe-OWXEXe-dgl2Hf VVEJ3d"]');
             await addToEstimate.waitForExist();
