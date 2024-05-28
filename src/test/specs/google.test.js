@@ -1,6 +1,8 @@
+const GoogleHomePage = require('../../po/page/cloud_google.page')
+
 describe('Task 3 and 4 for google cloud', () => {
     beforeEach(async () => {
-        await browser.url('https://cloud.google.com/?hl=es')
+        await GoogleHomePage.open();
         
     })
     afterEach(async () => {
@@ -10,18 +12,10 @@ describe('Task 3 and 4 for google cloud', () => {
 
     describe('Task 3 and 4 for google cloud', () => {
         
-        it('test the selection options for the dropdown', async () => {
-            // Opening the Google search application on the web
-            const googleSearchClick = await $('[class="YSM5S"]');
-            await googleSearchClick.waitForExist();
-            await googleSearchClick.click();
-
-            // Placing the input in the search field and pressing enter
-            const googleSearchInput = await $('[class="mb2a7b"]');
-            await googleSearchInput.waitForExist();
-            await googleSearchInput.setValue('Google Cloud Platform Pricing Calculator');
-            await browser.keys('Enter');
-
+        it('Task 3 for google cloud page', async () => {
+            // Opening the Google search application on the home page
+            await GoogleHomePage.serch('Google Cloud Platform Pricing Calculator');
+            
             // Find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
             const calculatorLink = await browser.$("//a[contains(@href, 'products/calculator') and contains(@class, 'gs-title')]");
             await calculatorLink.waitForExist();
@@ -37,20 +31,22 @@ describe('Task 3 and 4 for google cloud', () => {
             await computeEngine.waitForClickable({ timeout: 2000 });
             await computeEngine.click();
 
-            // Wait for the menu to be displayed and add the number of instances to 4
+            // Wait for the menu to be displayed
             const waitDisplayedMenu = await $('[class="vHartc"]');
             await waitDisplayedMenu.waitForDisplayed({ timeout: 2000 });
+
+            //add the number of instances to 4
             const numberOfInstances = await $('[id="c11"]');
             await numberOfInstances.setValue(4);
 
             // Checking that the operating system is free
-            const dropdownOpener = await $('//div[contains(@data-field-input-type, "2")]');
-            await dropdownOpener.waitForExist();
-            await dropdownOpener.click();
+            const softwareDropOpener = await $('//div[contains(@data-field-input-type, "2")]');
+            await softwareDropOpener.waitForExist();
+            await softwareDropOpener.click();
 
-            const optionElement = await $(`//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)")]`);
-            await optionElement.waitForExist();
-            await optionElement.click();
+            const softwareOption = await $(`//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)")]`);
+            await softwareOption.waitForExist();
+            await softwareOption.click();
 
             // Click on the "regular" radio button
             const regularLabel = await $('//label[text()="Regular"]');
