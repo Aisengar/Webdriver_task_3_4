@@ -22,23 +22,17 @@ class EstimatedPage {
         await browser.switchToWindow(handles[1]);
         await browser.pause(1000);
     }
-
     async verifySummaryValues() {
         for (const [key, selector] of Object.entries(this.summarySelectors)) {
             const element = await $(selector);
             await element.waitForExist({ timeout: 5000 });
             const text = await element.getText();
 
-            // Special handling for total cost comparison
             if (key === 'totalCost') {
                 const totalCostValue = text.match(/USD (\d+\.\d+)/)[1];
-                if (totalCostValue !== testdata.totalcost) {
-                    throw new Error(`Expected total cost to be "${testdata.totalcost}" but found "${totalCostValue}"`);
-                }
+                expect(totalCostValue).toEqual(testdata.totalCost);
             } else {
-                if (text !== testdata[key]) {
-                    throw new Error(`Expected ${key} to be "${testdata[key]}" but found "${text}"`);
-                }
+                expect(text).toEqual(testdata[key]);
             }
         }
     }
