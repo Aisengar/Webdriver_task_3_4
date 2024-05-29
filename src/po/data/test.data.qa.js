@@ -18,8 +18,10 @@ const testdata = {
     regionOption: 'us-west1',
     committedUseOption: '1 year',
     numberOfInstancesOption: '4',
-    osSoftwareOption: 'Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)',
+    osSoftwareOption: 'free-debian-centos-coreos-ubuntu-or-byol-bring-your-own-license',
     provisioningModelOption: 'Regular',
+    data_value: '2',
+
 };
 
 module.exports = { testdata };

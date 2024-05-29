@@ -25,7 +25,7 @@ describe('Task 3 from QA auto testing', () => {
             // Wait for the menu to be displayed
             await PricingCalculatorPage.SelectionMenue();
             //add the number of instances to 4
-            await PricingCalculatorPage.numberOfInstancesOption(testdata.numberOfInstances);
+            await PricingCalculatorPage.numberOfInstancesOption(testdata.numberOfInstancesOption);
             // Checking that the operating system is free
             await PricingCalculatorPage.softwareDropDownClick();
             // Click on the "regular" radio button

@@ -7,7 +7,7 @@ class PricingCalculatorPage {
     get waitDisplayedMenu() { return $(`[class="vHartc"]`); }
     get numberOfInstances() { return $(`[id="c11"]`); }
     get softwareDropDown() { return $(`//div[contains(@data-field-input-type, "2")]`); }
-    get softwareOption() { return $(`//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "${testdata.osSoftwareOption}")]`); }
+    get softwareOption() { return $(`//li[contains(@data-value,"${testdata.osSoftwareOption}")]`); }//este ya funciona
     get regularRadio() { return $(`//label[text()="${testdata.provisioningModelOption}"]`); }
     get machineType() { return $(`(//div[contains(@class,"O1htCb-H9tDt PPUDSe t8xIwc")])[4]//div[contains(@class, "VfPpkd-TkwUic")]`); }
     get machineTypeOption() { return $(`//li[contains(@data-value, "${testdata.machineTypeOption}")]`); }
@@ -15,7 +15,7 @@ class PricingCalculatorPage {
     get gpuModelDropdown() { return $(`(//div[contains(@jsaction,"bITzcd:KRVFmb;iFFCZc:Y0y4c;Rld2oe:gDkf4c;EDR5Je:QdOKJc;FzgWvd:RFVo1b")])[8]`); }
     get gpuModelTypeOption() { return $(`//li[contains(@data-value, "${testdata.gpuModelOption}")]`); }
     get localSSDDropdown() { return $(`(//div[contains(@data-field-input-type,"2")])[4]`); }
-    get localSSDTypeOption() { return $(`//li[@data-value="2" and contains(.//span[@jsname="K4r5Ff"], "${testdata.localSSDOption}")]`); }
+    get localSSDTypeOption() { return $(`//li[@data-value="${testdata.data_value}" and contains(.//span[@jsname="K4r5Ff"], "${testdata.localSSDOption}")]`); }
     get regionDropdown() { return $(`[data-field-type="115"]`); }
     get regionTypeOption() { return $(`//li[@data-value = "${testdata.regionOption}"]`); }
     get committedUseButton() { return $(`(//div[contains(@class, "e2WL2b") and .//input[@name="116"]])[2]`); }
