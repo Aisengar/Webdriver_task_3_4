@@ -27,21 +27,21 @@ describe('Task 3 from QA auto testing', () => {
             //add the number of instances to 4
             await PricingCalculatorPage.numberOfInstancesOption(testdata.numberOfInstancesOption);
             // Checking that the operating system is free
-            await PricingCalculatorPage.softwareDropDownClick();
+            await PricingCalculatorPage.softwareDropDownClick(testdata.osSoftwareOption);
             // Click on the "regular" radio button
-            await PricingCalculatorPage.regularRadioClick();
+            await PricingCalculatorPage.provisioningModelClick(testdata.provisioningModelOption);
             // Click on the machine type and select n1-standard-8
-            await PricingCalculatorPage.machineTypeClick();
+            await PricingCalculatorPage.machineTypeClick(testdata.machineTypeOption);
             // Click on the "Add GPUs" button
             await PricingCalculatorPage.addGPUsButtonClick();
             // Interact with the GPU model dropdown
-            await PricingCalculatorPage.gpuTypeDropdownClick();
+            await PricingCalculatorPage.gpuTypeDropdownClick(testdata.gpuModelOption);
             //the selection options for the dropdown and select the "2x375" option
-            await PricingCalculatorPage.localSSDDropdownClick();
+            await PricingCalculatorPage.localSSDDropdownClick(testdata.data_value, testdata.localSSDOption);
             // Open the region dropdown options by clicking on the dropdown opener
-            await PricingCalculatorPage.regionDropdownClick();
+            await PricingCalculatorPage.regionDropdownClick(testdata.regionOption);
             // Click on the Committed use "1 Year" button
-            await PricingCalculatorPage.committedButtonSelect();
+            await PricingCalculatorPage.committedButtonSelect(testdata.committedUseOption);
             // Check if the price is calculated in the correct section
             await PricingCalculatorPage.pagePricesTotal();
             // Press the share button and check the total price
