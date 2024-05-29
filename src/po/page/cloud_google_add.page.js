@@ -18,7 +18,7 @@ class PricingCalculatorPage {
     get localSSDTypeOption() { return $(`//li[@data-value="${testdata.data_value}" and contains(.//span[@jsname="K4r5Ff"], "${testdata.localSSDOption}")]`); }
     get regionDropdown() { return $(`[data-field-type="115"]`); }
     get regionTypeOption() { return $(`//li[@data-value = "${testdata.regionOption}"]`); }
-    get committedUseButton() { return $(`(//div[contains(@class, "e2WL2b") and .//input[@name="116"]])[2]`); }
+    get committedUseButton() { return $(`(//div[contains(@class, "e2WL2b") and .//input[@name="116"]])[${testdata.committedUseOption}]`); }
     get priceSideMenu() { return $(`//div[contains(@class,"fbc2ib")]//label`); }
     get PriceTopMenu() { return $(`//div[contains(@class,"egBpsb")]//span`); }
     get OpenEstimatedCostButton() { return $(`[aria-label="Open detailed view"]`); }

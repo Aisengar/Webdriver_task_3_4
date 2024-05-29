@@ -4,12 +4,13 @@ const testdata = {
     machineTypeOption: 'n1-standard-8',
     gpuModelOption: 'nvidia-tesla-p100',
     localSSDOption: '2x375 GB',
+    data_value: '2',//This is part of the SSD option
     regionOption: 'us-west1',
-    committedUseOption: '1 year',
+    committedUseOption: '2',// otion 1 = none, option 2 = 1 year and option 3 = 3 years
     numberOfInstancesOption: '4',
     osSoftwareOption: 'free-debian-centos-coreos-ubuntu-or-byol-bring-your-own-license',
     provisioningModelOption: 'Regular',
-    data_value: '2',
+    
 
     //verification for the summary qa
     machineType: 'n1-standard-8, vCPUs: 8, RAM: 30 GB',

@@ -5,7 +5,6 @@ class EstimatedPage {
         this.summarySelectors = {
             machineType: '//span[text()="Machine type"]/following-sibling::span',
             gpuModel: '//span[text()="GPU Model"]/following-sibling::span',
-            numberOfGPUs: '//span[text()="Number of GPUs"]/following-sibling::span',
             localSSD: '//span[text()="Local SSD"]/following-sibling::span',
             region: '//span[text()="Region"]/following-sibling::span',
             committedUse: '//span[text()="Committed use discount options"]/following-sibling::span',
@@ -28,7 +27,7 @@ class EstimatedPage {
             const element = await $(selector);
             await element.waitForExist({ timeout: 5000 });
             const text = await element.getText();
-            //console.log(`Expected ${key} to be ${testdata[key]} but found "${text}"`)
+            console.log(`Expected ${key} to be ${testdata[key]} but found "${text}"`)
             if (key === 'totalcost') {
                 const totalCostValue = text
                 expect(totalCostValue).toEqual(testdata.totalcost);
