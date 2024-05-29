@@ -1,4 +1,4 @@
-const {testdata} = require('../../po/data/test.data.js');
+const {testdata} = require('../data/test.data.qa.js');
 
 class EstimatedPage {
     constructor() {
@@ -28,7 +28,7 @@ class EstimatedPage {
             const element = await $(selector);
             await element.waitForExist({ timeout: 5000 });
             const text = await element.getText();
-            //console.log(`Expected ${key} to be "${testdata[key]}" but found "${text}"`)
+            //console.log(`Expected ${key} to be ${testdata[key]} but found "${text}"`)
             if (key === 'totalcost') {
                 const totalCostValue = text
                 expect(totalCostValue).toEqual(testdata.totalcost);

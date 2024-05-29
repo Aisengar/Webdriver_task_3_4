@@ -1,27 +1,27 @@
 const ComputeEngine = require('../../po/components/computeEnging.component')
 const SharedWindowDisplay = require('../../po/components/shareddisplay.component')
-const { testdata } = require('../../po/data/test.data');
+const { testdata } = require('../data/test.data.qa');
 class PricingCalculatorPage {
 
-    get addToEstimateButton() { return $('[class="AeBiU-LgbsSe AeBiU-LgbsSe-OWXEXe-Bz112c-M1Soyc AeBiU-LgbsSe-OWXEXe-dgl2Hf VVEJ3d"]'); }
-    get waitDisplayedMenu() { return $('[class="vHartc"]'); }
-    get numberOfInstances() { return $('[id="c11"]'); }
-    get softwareDropDown() { return $('//div[contains(@data-field-input-type, "2")]'); }
-    get softwareOption() { return $('//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)")]'); }
-    get regularRadio() { return $('//label[text()="Regular"]'); }
-    get machineType() { return $('(//div[contains(@class,"O1htCb-H9tDt PPUDSe t8xIwc")])[4]//div[contains(@class, "VfPpkd-TkwUic")]'); }
-    get machineTypeOption() { return $('//li[contains(@data-value, "n1-standard-8")]'); }
-    get addGPUsButton() { return $('(//div[@class="AsBIyb"]//div[@jscontroller="hAACQ"])[3]//button[@jsname="DMn7nd"]'); }
-    get gpuModelDropdown() { return $('(//div[contains(@jsaction,"bITzcd:KRVFmb;iFFCZc:Y0y4c;Rld2oe:gDkf4c;EDR5Je:QdOKJc;FzgWvd:RFVo1b")])[8]'); }
-    get gpuModelTypeOption() { return $('//li[contains(@data-value, "nvidia-tesla-p100")]'); }
-    get localSSDDropdown() { return $('(//div[contains(@data-field-input-type,"2")])[4]'); }
-    get localSSDTypeOption() { return $('//li[@data-value="2" and contains(.//span[@jsname="K4r5Ff"], "2x375 GB")]'); }
-    get regionDropdown() { return $('[data-field-type="115"]'); }
-    get regionTypeOption() { return $('//li[@data-value = "us-west1"]'); }
-    get committedUseButton() { return $('(//div[contains(@class, "e2WL2b") and .//input[@name="116"]])[2]'); }
-    get priceSideMenu() { return $('//div[contains(@class,"fbc2ib")]//label'); }
-    get PriceTopMenu() { return $('//div[contains(@class,"egBpsb")]//span'); }
-    get OpenEstimatedCostButton() { return $('[aria-label="Open detailed view"]'); }
+    get addToEstimateButton() { return $(`[class="AeBiU-LgbsSe AeBiU-LgbsSe-OWXEXe-Bz112c-M1Soyc AeBiU-LgbsSe-OWXEXe-dgl2Hf VVEJ3d"]`); }
+    get waitDisplayedMenu() { return $(`[class="vHartc"]`); }
+    get numberOfInstances() { return $(`[id="c11"]`); }
+    get softwareDropDown() { return $(`//div[contains(@data-field-input-type, "2")]`); }
+    get softwareOption() { return $(`//li[contains(@data-708c49e2-dcf0-4d62-b457-88577bfe3081, "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)")]`); }
+    get regularRadio() { return $(`//label[text()="Regular"]`); }
+    get machineType() { return $(`(//div[contains(@class,"O1htCb-H9tDt PPUDSe t8xIwc")])[4]//div[contains(@class, "VfPpkd-TkwUic")]`); }
+    get machineTypeOption() { return $(`//li[contains(@data-value, "n1-standard-8")]`); }
+    get addGPUsButton() { return $(`(//div[@class="AsBIyb"]//div[@jscontroller="hAACQ"])[3]//button[@jsname="DMn7nd"]`); }
+    get gpuModelDropdown() { return $(`(//div[contains(@jsaction,"bITzcd:KRVFmb;iFFCZc:Y0y4c;Rld2oe:gDkf4c;EDR5Je:QdOKJc;FzgWvd:RFVo1b")])[8]`); }
+    get gpuModelTypeOption() { return $(`//li[contains(@data-value, "nvidia-tesla-p100")]`); }
+    get localSSDDropdown() { return $(`(//div[contains(@data-field-input-type,"2")])[4]`); }
+    get localSSDTypeOption() { return $(`//li[@data-value="2" and contains(.//span[@jsname="K4r5Ff"], "2x375 GB")]`); }
+    get regionDropdown() { return $(`[data-field-type="115"]`); }
+    get regionTypeOption() { return $(`//li[@data-value = "us-west1"]`); }
+    get committedUseButton() { return $(`(//div[contains(@class, "e2WL2b") and .//input[@name="116"]])[2]`); }
+    get priceSideMenu() { return $(`//div[contains(@class,"fbc2ib")]//label`); }
+    get PriceTopMenu() { return $(`//div[contains(@class,"egBpsb")]//span`); }
+    get OpenEstimatedCostButton() { return $(`[aria-label="Open detailed view"]`); }
 
     async addToEstimate() {
         await this.addToEstimateButton.waitForExist( { timeout: 2000 } );
