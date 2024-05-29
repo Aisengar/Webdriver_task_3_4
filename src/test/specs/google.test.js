@@ -4,7 +4,7 @@ const PricingCalculatorPage = require('../../po/page/cloud_google_add.page')
 const EstimatedPage = require('../../po/page/cloud_google_estimate.page')
 const { testdata } = require('../../po/data/test.data');
 
-describe('Task 3 and 4 for google cloud', () => {
+describe('Task 3 from QA auto testing', () => {
     beforeEach(async () => {
         await GoogleHomePage.open();
     })
@@ -12,8 +12,8 @@ describe('Task 3 and 4 for google cloud', () => {
         await browser.deleteCookies()
         await browser.reloadSession()
     })
-    describe('Task 3 and 4 for google cloud', () => {
-        it('Task 3 for google cloud page', async () => {
+    describe('Task 3 for google cloud test', () => {
+        it('Acces to google Google Cloud Platform Pricing Calculator page and fill all the data, check the total cost and the summary selections', async () => {
             // Opening the Google search application on the home page
             await GoogleHomePage.serch('Google Cloud Platform Pricing Calculator');
             // Find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
