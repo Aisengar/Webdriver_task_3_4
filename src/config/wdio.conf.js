@@ -231,12 +231,17 @@ exports.config = {
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
 <<<<<<< HEAD
+<<<<<<< HEAD
     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
         if (error) {
             const timestamp = new Date().toISOString().replace(/:/g, '-');
             await browser.saveScreenshot(`./screenshots/${timestamp}.png`);
         }
     },
+=======
+    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
+    // },
+>>>>>>> parent of dbc5746 (addin the scrinshot when  an error is trigger)
 =======
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
