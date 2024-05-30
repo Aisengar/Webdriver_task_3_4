@@ -1,4 +1,4 @@
-const testDataDev = {
+const testdata = {
 
     //test data dev
     machineTypeOption: 'n1-standard-16',
@@ -24,4 +24,4 @@ const testDataDev = {
 
 };
 
-module.exports = { testDataDev };
+module.exports = { testdata };
