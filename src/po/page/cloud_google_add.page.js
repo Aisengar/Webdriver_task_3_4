@@ -104,8 +104,5 @@ class PricingCalculatorPage {
         await this.OpenEstimatedCostButton.waitForExist({ timeout: 2000 })
         await this.OpenEstimatedCostButton.click()
     }
-    
-
 }
-
 module.exports = new PricingCalculatorPage()
