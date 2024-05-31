@@ -16,7 +16,7 @@ describe('Task 3 from QA auto testing', () => {
     describe('Task 3 for google cloud test', () => {
         it('Acces to google Google Cloud Platform Pricing Calculator page and fill all the data, check the total cost and the summary selections', async () => {
             // Opening the Google search application on the home page
-            await GoogleHomePage.serch('Google Cloud Platform Pricing Calculator');
+            await GoogleHomePage.serch(testdata.serchInputWord);
             // Find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
             await GoogleSerchPage.openCalculatorLink();
             // Click on the "Add to estimate" button

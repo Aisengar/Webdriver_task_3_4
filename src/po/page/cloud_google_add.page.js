@@ -25,7 +25,7 @@ class PricingCalculatorPage {
         await ComputeEngine.clickComputeEngine()
     }
     async SelectionMenue() {
-        await this.waitDisplayedMenu.waitForExist({ timeout: 2000 })
+        await this.waitDisplayedMenu.waitForExist({ timeout: 5000 })
     }
     async numberOfInstancesOption(number) {
         await this.numberOfInstances.setValue(number)

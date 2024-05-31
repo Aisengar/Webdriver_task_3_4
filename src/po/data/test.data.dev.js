@@ -1,6 +1,8 @@
 const testdata = {
 
     //test data dev
+    smokeUrl: 'https://cloud.google.com/products/calculator',
+    serchInputWord: 'Google Cloud Platform Pricing Calculator',
     machineTypeOption: 'n1-standard-16',
     gpuModelOption: 'nvidia-tesla-k80',
     localSSDOption: '6x375 GB',

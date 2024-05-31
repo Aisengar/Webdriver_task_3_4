@@ -1,6 +1,8 @@
 
 const testdata = {
-    //options for test data qa
+    //options for test data prod
+    smokeUrl: 'https://cloud.google.com/products/calculator',
+    serchInputWord: 'Google Cloud Platform Pricing Calculator',
     machineTypeOption: 'n1-standard-8',
     gpuModelOption: 'nvidia-tesla-p100',
     localSSDOption: '2x375 GB',
@@ -12,7 +14,7 @@ const testdata = {
     provisioningModelOption: 'Regular',
     
 
-    //verification for the summary qa
+    //verification for the summary prod
     machineType: 'n1-standard-8, vCPUs: 8, RAM: 30 GB',
     gpuModel: 'NVIDIA TESLA P100',
     numberOfGPUs: '1',
