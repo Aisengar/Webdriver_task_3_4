@@ -28,6 +28,7 @@ class PricingCalculatorPage {
         await this.waitDisplayedMenu.waitForExist({ timeout: 5000 })
     }
     async numberOfInstancesOption(number) {
+        await this.numberOfInstances.waitForExist({ timeout: 2000 })
         await this.numberOfInstances.setValue(number)
     }
     async softwareDropDownClick(osSoftwareOption) {

@@ -15,47 +15,30 @@ describe('Task 3 from QA auto testing', () => {
     })
     describe('Task 3 for google cloud test', () => {
         it('Acces to google Google Cloud Platform Pricing Calculator page and fill all the data, check the total cost and the summary selections', async () => {
-            // Opening the Google search application on the home page
             await GoogleHomePage.serch(testdata.serchInputWord);
-            // Find an element on the list that has the text "Google Cloud Platform Pricing Calculator"
             await GoogleSerchPage.openCalculatorLink();
-            // Click on the "Add to estimate" button
             await PricingCalculatorPage.addToEstimate();
-            // Click on the "Compute engine" section button
             await PricingCalculatorPage.computeEngineClick();
-            // Wait for the menu to be displayed
             await PricingCalculatorPage.SelectionMenue();
-            //add the number of instances to 4
             await PricingCalculatorPage.numberOfInstancesOption(testdata.numberOfInstancesOption);
-            // Checking that the operating system is free
             await PricingCalculatorPage.softwareDropDownClick(testdata.osSoftwareOption);
-            // Click on the "regular" radio button
             await PricingCalculatorPage.provisioningModelClick(testdata.provisioningModelOption);
-            // Click on the machine type and select n1-standard-8
             await PricingCalculatorPage.machineTypeClick(testdata.machineTypeOption);
-            // Click on the "Add GPUs" button
             await PricingCalculatorPage.addGPUsButtonClick();
-            // Interact with the GPU model dropdown
             await PricingCalculatorPage.gpuTypeDropdownClick(testdata.gpuModelOption);
-            //the selection options for the dropdown and select the "2x375" option
             await PricingCalculatorPage.localSSDDropdownClick(testdata.data_value, testdata.localSSDOption);
-            // Open the region dropdown options by clicking on the dropdown opener
             await PricingCalculatorPage.regionDropdownClick(testdata.regionOption);
-            // Click on the Committed use "1 Year" button
             await PricingCalculatorPage.committedButtonSelect(testdata.committedUseOption);
-            // Check if the price is calculated in the correct section
             await PricingCalculatorPage.pagePricesTotal();
-            // Press the share button and check the total price
             await PricingCalculatorPage.shareButtonOpener();
-            // Open the Total estimated cost section
             await PricingCalculatorPage.OpenEstimatedCost();
-            // Switch to the new window
             await EstimatedPage.OpenEstimatedWindow();
-            // Verify the summary values
             await EstimatedPage.verifySummaryValues();
 
         });
     })
 })
+
+
 
 
