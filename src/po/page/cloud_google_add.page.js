@@ -1,6 +1,7 @@
 const ComputeEngine = require('../../po/components/computeEnging.component')
 const SharedWindowDisplay = require('../../po/components/shareddisplay.component')
-const { testdata } = require('../data/test.data.qa');
+const environment = process.env.NODE_ENV || 'dev';
+const { testdata } = require(`../data/test.data.${environment}`);
 class PricingCalculatorPage {
 
     get addToEstimateButton() { return $(`[class="AeBiU-LgbsSe AeBiU-LgbsSe-OWXEXe-Bz112c-M1Soyc AeBiU-LgbsSe-OWXEXe-dgl2Hf VVEJ3d"]`); }
