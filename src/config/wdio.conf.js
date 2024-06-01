@@ -220,7 +220,7 @@ exports.config = {
     // },
     suites: {
         smoke: ['./../test/specs/*.smoke.test.js'],
-        regression: ['./../test/specs/*.test.js']
+        regression: ['./../test/specs/*.regression.test.js']
     },
     /**
      * Function to be executed after a test (in Mocha/Jasmine only)
