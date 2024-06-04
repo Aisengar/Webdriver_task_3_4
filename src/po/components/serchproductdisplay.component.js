@@ -1,4 +1,4 @@
-class ComputeEngine{
+class SerchProductDisplay{
 
     get computeEngine() { return $('//div[contains(@class, "wrzENe")]//div[contains(@class, "d5NbRd-EScbFb-JIbuQc PtwYlf")]'); }
 
@@ -8,4 +8,4 @@ class ComputeEngine{
     }
 }
 
-module.exports = new ComputeEngine()
+module.exports = new SerchProductDisplay()

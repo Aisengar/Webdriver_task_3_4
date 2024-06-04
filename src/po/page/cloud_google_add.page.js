@@ -1,4 +1,4 @@
-const ComputeEngine = require('../../po/components/serchproductdisplay.component')
+const SerchProductDisplay = require('../../po/components/serchproductdisplay.component')
 const SharedWindowDisplay = require('../../po/components/shareddisplay.component')
 const environment = process.env.NODE_ENV || 'dev';
 const { testdata } = require(`../data/test.data.${environment}`);
@@ -22,7 +22,7 @@ class PricingCalculatorPage {
         await this.addToEstimateButton.click()        
     }
     async computeEngineClick() {
-        await ComputeEngine.clickComputeEngine()
+        await SerchProductDisplay.clickComputeEngine()
     }
     async SelectionMenue() {
         await this.waitDisplayedMenu.waitForExist({ timeout: 10000 })
