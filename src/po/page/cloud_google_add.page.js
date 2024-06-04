@@ -19,6 +19,7 @@ class PricingCalculatorPage {
 
     async addToEstimate() {
         await this.addToEstimateButton.waitForExist( { timeout: 10000 } );
+        await browser.pause(800)
         await this.addToEstimateButton.click()        
     }
     async computeEngineClick() {
