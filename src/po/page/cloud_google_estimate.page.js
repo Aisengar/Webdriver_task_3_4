@@ -1,11 +1,11 @@
-const {testdata} = require('../../po/data/test.data.js');
+const environment = process.env.NODE_ENV || 'dev';
+const {testdata} = require(`../data/test.data.${environment}.js`);
 
 class EstimatedPage {
     constructor() {
         this.summarySelectors = {
             machineType: '//span[text()="Machine type"]/following-sibling::span',
             gpuModel: '//span[text()="GPU Model"]/following-sibling::span',
-            numberOfGPUs: '//span[text()="Number of GPUs"]/following-sibling::span',
             localSSD: '//span[text()="Local SSD"]/following-sibling::span',
             region: '//span[text()="Region"]/following-sibling::span',
             committedUse: '//span[text()="Committed use discount options"]/following-sibling::span',
@@ -23,21 +23,19 @@ class EstimatedPage {
         await browser.switchToWindow(handles[1]);
         await browser.pause(1000);
     }
+    async verifyElement(key, selector) {
+        const element = await $(selector);
+        await element.waitForExist({ timeout: 5000 });
+        const text = await element.getText();
+        console.log(`Expected ${key} to be ${testdata.summary[key]} but found "${text}"`);
+        expect(text).toEqual(testdata.summary[key]);
+    }
+
     async verifySummaryValues() {
         for (const [key, selector] of Object.entries(this.summarySelectors)) {
-            const element = await $(selector);
-            await element.waitForExist({ timeout: 5000 });
-            const text = await element.getText();
-            //console.log(`Expected ${key} to be "${testdata[key]}" but found "${text}"`)
-            if (key === 'totalcost') {
-                const totalCostValue = text
-                expect(totalCostValue).toEqual(testdata.totalcost);
-            } else {
-                expect(text).toEqual(testdata[key]);
-            }
+            await this.verifyElement(key, selector);
         }
     }
 }
-
 
 module.exports = new EstimatedPage();

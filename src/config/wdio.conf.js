@@ -145,8 +145,10 @@ exports.config = {
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
      */
-    // onPrepare: function (config, capabilities) {
-    // },
+     onPrepare: function (config, capabilities) {
+        const environment = process.env.NODE_ENV || 'dev';
+        process.env.NODE_ENV = environment;
+     },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service
      * for that worker as well as modify runtime environments in an async fashion.
@@ -216,6 +218,10 @@ exports.config = {
      */
     // afterHook: function (test, context, { error, result, duration, passed, retries }, hookName) {
     // },
+    suites: {
+        smoke: ['./../test/specs/*.smoke.test.js'],
+        regression: ['./../test/specs/*.regression.test.js']
+    },
     /**
      * Function to be executed after a test (in Mocha/Jasmine only)
      * @param {object}  test             test object
@@ -226,9 +232,13 @@ exports.config = {
      * @param {boolean} result.passed    true if test has passed, otherwise false
      * @param {object}  result.retries   information about spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
 
+    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+        if (error) {
+            const timestamp = new Date().toISOString().replace(/:/g, '-');
+            await browser.saveScreenshot(`./screenshots/${timestamp}.png`);
+        }
+    },
 
     /**
      * Hook that gets executed after the suite has ended
