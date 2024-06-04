@@ -27,7 +27,6 @@ class EstimatedPage {
         const element = await $(selector);
         await element.waitForExist({ timeout: 5000 });
         const text = await element.getText();
-        console.log(`Expected ${key} to be ${testdata.summary[key]} but found "${text}"`);
         expect(text).toEqual(testdata.summary[key]);
     }
 
