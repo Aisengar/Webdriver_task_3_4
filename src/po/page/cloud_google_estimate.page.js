@@ -23,21 +23,19 @@ class EstimatedPage {
         await browser.switchToWindow(handles[1]);
         await browser.pause(1000);
     }
+    async verifyElement(key, selector) {
+        const element = await $(selector);
+        await element.waitForExist({ timeout: 5000 });
+        const text = await element.getText();
+        console.log(`Expected ${key} to be ${testdata.summary[key]} but found "${text}"`);
+        expect(text).toEqual(testdata.summary[key]);
+    }
+
     async verifySummaryValues() {
         for (const [key, selector] of Object.entries(this.summarySelectors)) {
-            const element = await $(selector);
-            await element.waitForExist({ timeout: 5000 });
-            const text = await element.getText();
-            console.log(`Expected ${key} to be ${testdata[key]} but found "${text}"`)
-            if (key === 'totalcost') {
-                const totalCostValue = text
-                expect(totalCostValue).toEqual(testdata.totalcost);
-            } else {
-                expect(text).toEqual(testdata[key]);
-            }
+            await this.verifyElement(key, selector);
         }
     }
 }
-
 
 module.exports = new EstimatedPage();

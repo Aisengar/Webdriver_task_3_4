@@ -93,7 +93,7 @@ class PricingCalculatorPage {
         await this.PriceTopMenu.getText();
         await this.PriceTopMenu.waitForExist({ timeout: 5000 });
         const totalCostText = await this.PriceTopMenu.getText();
-        testdata.totalcost = totalCostText;
+        testdata.summary.totalcost = totalCostText;
     }
     async shareButtonOpener() {
         await SharedWindowDisplay.OpenSharedWindow();
