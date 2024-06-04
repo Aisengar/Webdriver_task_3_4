@@ -3,6 +3,7 @@ class GoogleHomePage {
     get sherchInput() { return $('[class="mb2a7b"]') }
     get serchClick() { return $('[class="YSM5S"]') }
     async open() {
+        await browser.maximizeWindow();
         await browser.url('https://cloud.google.com/?hl=es')
     }
 
