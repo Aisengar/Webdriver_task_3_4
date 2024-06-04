@@ -1,4 +1,4 @@
-const ComputeEngine = require('../../po/components/computeEnging.component')
+const ComputeEngine = require('../../po/components/serchproductdisplay.component')
 const SharedWindowDisplay = require('../../po/components/shareddisplay.component')
 const environment = process.env.NODE_ENV || 'dev';
 const { testdata } = require(`../data/test.data.${environment}`);
