@@ -4,7 +4,7 @@ const environment = process.env.NODE_ENV || 'dev';
 const { testdata } = require(`../data/test.data.${environment}`);
 class PricingCalculatorPage {
 
-    get addToEstimateButton() { return $(`[class="AeBiU-LgbsSe AeBiU-LgbsSe-OWXEXe-Bz112c-M1Soyc AeBiU-LgbsSe-OWXEXe-dgl2Hf VVEJ3d"]`); }
+    get addToEstimateButton() { return $(`//div[contains(@jsaction,"JIbuQc:x7hz7c;")]//button`); }
     get waitDisplayedMenu() { return $(`[class="vHartc"]`); }
     get numberOfInstances() { return $(`[id="c11"]`); }
     get softwareDropDown() { return $(`//div[contains(@data-field-input-type, "2")]`); }

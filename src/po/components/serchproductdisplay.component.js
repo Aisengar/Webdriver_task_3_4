@@ -1,6 +1,6 @@
 class SerchProductDisplay{
 
-    get computeEngine() { return $('//div[contains(@class, "wrzENe")]//div[contains(@class, "d5NbRd-EScbFb-JIbuQc PtwYlf")]'); }
+    get computeEngine() { return $('(//div[contains(@data-idx,"0")])[1]'); }
 
     async clickComputeEngine() {
         await this.computeEngine.waitForExist({ timeout: 10000 });
