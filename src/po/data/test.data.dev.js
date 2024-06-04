@@ -3,6 +3,7 @@ const testdata = {
     //test data dev
     urls:{
         smokeUrl: 'https://cloud.google.com/products/calculator',
+        googleUrl: 'https://cloud.google.com/?hl=es'
     },
     searchInputs: {
         googleInputWord: 'Google Cloud Platform Pricing Calculator',
