@@ -18,7 +18,7 @@ class PricingCalculatorPage {
     get OpenEstimatedCostButton() { return $(`[aria-label="Open detailed view"]`); }
 
     async addToEstimate() {
-        await this.addToEstimateButton.waitForExist( { timeout: 2000 } );
+        await this.addToEstimateButton.waitForExist( { timeout: 10000 } );
         await this.addToEstimateButton.click()        
     }
     async computeEngineClick() {
@@ -28,63 +28,63 @@ class PricingCalculatorPage {
         await this.waitDisplayedMenu.waitForExist({ timeout: 10000 })
     }
     async numberOfInstancesOption(number) {
-        await this.numberOfInstances.waitForExist({ timeout: 2000 })
+        await this.numberOfInstances.waitForExist({ timeout: 10000 })
         await this.numberOfInstances.setValue(number)
     }
     async softwareDropDownClick(osSoftwareOption) {
-        await this.softwareDropDown.waitForExist({ timeout: 2000 })
+        await this.softwareDropDown.waitForExist({ timeout: 10000 })
         await this.softwareDropDown.click()
         await browser.pause(500)
         const softwareOption = $(`//li[contains(@data-value,"${osSoftwareOption}")]`);
-        await softwareOption.waitForExist({ timeout: 2000 })
+        await softwareOption.waitForExist({ timeout: 10000 })
         await softwareOption.click()
     }
     async provisioningModelClick(provisioningModelOption) {
         const provisioningModel = $(`//label[text()="${provisioningModelOption}"]`);
-        await provisioningModel.waitForExist({ timeout: 2000 })
+        await provisioningModel.waitForExist({ timeout: 10000 })
         await provisioningModel.click()
     }
     async machineTypeClick(machineTypeOption) {
-        await this.machineType.waitForExist({ timeout: 2000 })
+        await this.machineType.waitForExist({ timeout: 10000 })
         await this.machineType.click()
         await browser.pause(500)
         const machineTypeModel = $(`//li[contains(@data-value, "${machineTypeOption}")]`);
-        await machineTypeModel.waitForExist({ timeout: 2000 })
+        await machineTypeModel.waitForExist({ timeout: 10000 })
         await machineTypeModel.click()
     }
 
     async addGPUsButtonClick() {
-        await this.addGPUsButton.waitForExist({ timeout: 2000 })
+        await this.addGPUsButton.waitForExist({ timeout: 10000 })
         await this.addGPUsButton.click()
         await browser.pause(1500)
     }
     async gpuTypeDropdownClick(gpuModelTypeOption) {
-        await this.gpuModelDropdown.waitForExist({ timeout: 2000 })
+        await this.gpuModelDropdown.waitForExist({ timeout: 10000 })
         await this.gpuModelDropdown.click()
         await browser.pause(500)
         const gpuModelType = $(`//li[contains(@data-value, "${gpuModelTypeOption}")]`);
-        await gpuModelType.waitForExist({ timeout: 2000 })
+        await gpuModelType.waitForExist({ timeout: 10000 })
         await gpuModelType.click()
     }
     async localSSDDropdownClick(number, localSSDOption) {
-        await this.localSSDDropdown.waitForExist({ timeout: 2000 })
+        await this.localSSDDropdown.waitForExist({ timeout: 10000 })
         await this.localSSDDropdown.click()
         await browser.pause(1000)
         const localSSDTypeOption = $(`//li[@data-value="${number}" and contains(.//span[@jsname="K4r5Ff"], "${localSSDOption}")]`);;
-        await localSSDTypeOption.waitForExist({ timeout: 2000 })
+        await localSSDTypeOption.waitForExist({ timeout: 10000 })
         await localSSDTypeOption.click()
     }
     async regionDropdownClick(regionTypeOption) {
-        await this.regionDropdown.waitForExist({ timeout: 2000 })
+        await this.regionDropdown.waitForExist({ timeout: 10000 })
         await this.regionDropdown.click()
         await browser.pause(1000);
         const regionType = $(`//li[@data-value = "${regionTypeOption}"]`);
-        await regionType.waitForExist({ timeout: 2000 })
+        await regionType.waitForExist({ timeout: 10000 })
         await regionType.click()
     }
     async committedButtonSelect(buttonOption) {
         const committedUseButton = $(`(//div[contains(@class, "e2WL2b") and .//input[@name="116"]])[${buttonOption}]`);
-        await committedUseButton.waitForExist({ timeout: 2000 })
+        await committedUseButton.waitForExist({ timeout: 10000 })
         await committedUseButton.click()
         
     }
@@ -101,7 +101,7 @@ class PricingCalculatorPage {
         await SharedWindowDisplay.closeSharedWindow();
     }
     async OpenEstimatedCost() {
-        await this.OpenEstimatedCostButton.waitForExist({ timeout: 2000 })
+        await this.OpenEstimatedCostButton.waitForExist({ timeout: 10000 })
         await this.OpenEstimatedCostButton.click()
     }
 }
