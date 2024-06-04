@@ -1,11 +1,11 @@
 
 const PricingCalculatorPage = require('../../po/page/cloud_google_add.page');
-const environment = process.env.NODE_ENV || 'dev';
-const { testdata } = require(`../../po/data/test.data.${environment}`);
+const env = process.env.NODE_ENV || 'dev';
+const { testdata } = require(`../../po/data/test.data.${env}`);
 
 describe('Smoke Test for Google Cloud Pricing Calculator', () => {
     beforeEach(async () => {
-        await browser.url(testdata.smokeUrl);
+        await browser.url(testdata.urls.smokeUrl);
         await PricingCalculatorPage.addToEstimate();
         await PricingCalculatorPage.computeEngineClick();
         await PricingCalculatorPage.SelectionMenue();
