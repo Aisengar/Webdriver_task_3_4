@@ -235,8 +235,8 @@ exports.config = {
 
     afterTest: async function(test, context, { error, result, duration, passed, retries }) {
         if (error) {
-            const timestamp = new Date().toISOString().replace(/:/g, '-');
-            await browser.saveScreenshot(`./screenshots/${timestamp}.png`);
+            const screenPicture = new Date().toISOString().replace(/:/g, '-');
+            await browser.saveScreenshot(`./screenshots/${screenPicture}.png`);
         }
     },
 
