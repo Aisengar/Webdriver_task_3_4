@@ -8,7 +8,7 @@ class GoogleHomePage {
     }
 
     async serch(text) {
-        await this.serchClick.waitForExist({ timeout: 2000 })
+        await this.serchClick.waitForExist({ timeout: 10000 })
         await this.serchClick.click()
         await this.sherchInput.setValue(text)
         await browser.keys('Enter')
