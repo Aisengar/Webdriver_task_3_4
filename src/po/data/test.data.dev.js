@@ -1,12 +1,11 @@
 const testdata = {
-
     //test data dev
     urls:{
-        smokeUrl: 'https://cloud.google.com/products/calculator',
-        googleUrl: 'https://cloud.google.com/?hl=es'
+        smokeUrl: process.env.DEV_SMOKE_URL,
+        googleUrl: process.env.DEV_GOOGLE_URL,
     },
     searchInputs: {
-        googleInputWord: 'Google Cloud Platform Pricing Calculator',
+        googleInputWord: process.env.DEV_GOOGLE_INPUT_WORD,
     },
     options:{
         machineTypeOption: 'n1-standard-16',
