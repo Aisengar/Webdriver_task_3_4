@@ -18,5 +18,8 @@
     "@wdio/mocha-framework": "^8.37.0",
     "@wdio/spec-reporter": "^8.37.0",
     "@wdio/visual-service": "^4.1.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
   }
 }

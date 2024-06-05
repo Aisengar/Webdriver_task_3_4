@@ -1,7 +1,10 @@
+const dotenv = require('dotenv');
+const env = process.env.NODE_ENV || 'dev';
+dotenv.config({ path: `./.env.${env}` });
+const { testdata } = require(`../../po/data/test.data.${env}`);
 const SerchProductDisplay = require('../../po/components/serchproductdisplay.component')
 const SharedWindowDisplay = require('../../po/components/shareddisplay.component')
-const environment = process.env.NODE_ENV || 'dev';
-const { testdata } = require(`../data/test.data.${environment}`);
+
 class PricingCalculatorPage {
 
     get addToEstimateButton() { return $(`//div[contains(@jsaction,"JIbuQc:x7hz7c;")]//button`); }

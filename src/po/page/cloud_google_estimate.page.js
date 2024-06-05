@@ -1,5 +1,7 @@
-const environment = process.env.NODE_ENV || 'dev';
-const {testdata} = require(`../data/test.data.${environment}.js`);
+const dotenv = require('dotenv');
+const env = process.env.NODE_ENV || 'dev';
+dotenv.config({ path: `./.env.${env}` });
+const { testdata } = require(`../../po/data/test.data.${env}`);
 
 class EstimatedPage {
     constructor() {

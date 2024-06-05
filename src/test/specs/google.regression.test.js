@@ -1,9 +1,12 @@
-const GoogleHomePage = require('../../po/page/cloud_google.page')
-const GoogleSerchPage = require('../../po/page/cloud_google_serch.page')
-const PricingCalculatorPage = require('../../po/page/cloud_google_add.page')
-const EstimatedPage = require('../../po/page/cloud_google_estimate.page')
+const dotenv = require('dotenv');
 const env = process.env.NODE_ENV || 'dev';
+dotenv.config({ path: `./.env.${env}` });
 const { testdata } = require(`../../po/data/test.data.${env}`);
+const GoogleHomePage = require('../../po/page/cloud_google.page');
+const GoogleSerchPage = require('../../po/page/cloud_google_serch.page');
+const PricingCalculatorPage = require('../../po/page/cloud_google_add.page');
+const EstimatedPage = require('../../po/page/cloud_google_estimate.page');
+
 
 describe('Task 3 from QA auto testing', () => {
     beforeEach(async () => {

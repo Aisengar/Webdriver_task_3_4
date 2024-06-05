@@ -1,7 +1,10 @@
 
-const PricingCalculatorPage = require('../../po/page/cloud_google_add.page');
+const dotenv = require('dotenv');
 const env = process.env.NODE_ENV || 'dev';
+dotenv.config({ path: `./.env.${env}` });
 const { testdata } = require(`../../po/data/test.data.${env}`);
+const PricingCalculatorPage = require('../../po/page/cloud_google_add.page');
+
 
 describe('Smoke Test for Google Cloud Pricing Calculator', () => {
     beforeEach(async () => {
