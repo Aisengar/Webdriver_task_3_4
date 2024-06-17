@@ -9,7 +9,7 @@ class PricingCalculatorPage {
 
     get addToEstimateButton() { return $(`//div[contains(@jsaction,"JIbuQc:x7hz7c;")]//button`); }
     get waitDisplayedMenu() { return $(`[class="vHartc"]`); }
-    get numberOfInstances() { return $(`[id="c11"]`); }
+    get numberOfInstances() { return $(`[id="c13"]`); }
     get softwareDropDown() { return $(`//div[contains(@data-field-input-type, "2")]`); }
     get machineType() { return $(`(//div[contains(@class,"O1htCb-H9tDt PPUDSe t8xIwc")])[4]//div[contains(@class, "VfPpkd-TkwUic")]`); }
     get addGPUsButton() { return $(`(//div[@class="AsBIyb"]//div[@jscontroller="hAACQ"])[3]//button[@jsname="DMn7nd"]`); }

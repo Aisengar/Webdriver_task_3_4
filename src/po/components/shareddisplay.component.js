@@ -1,9 +1,14 @@
 class SharedWindowDisplay {
+    get clossingPublicityButton() { return $('//span[contains(@class,"close")]'); }
     get sharedWindow() { return $('//div[contains(@jsaction, "JIbuQc:qsxFwf")]//button[contains(@aria-label, "Open Share Estimate dialog")]'); }
     get TotalSharedPrice() { return $('[class="ZgevAb"]'); }
     get closeSharedButton() { return $('//div[contains(@class, "bwApif-P5QLlc")]//button'); }
 
     async OpenSharedWindow() {
+        if(this.clossingPublicityButton.isExisting()) {
+            await this.clossingPublicityButton.waitForClickable({ timeout: 10000 });
+            await this.clossingPublicityButton.click();
+        }
         await this.sharedWindow.waitForExist({ timeout: 10000 });
         await browser.pause(500);
         await this.sharedWindow.click();
