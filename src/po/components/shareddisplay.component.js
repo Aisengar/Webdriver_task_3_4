@@ -9,7 +9,7 @@ class SharedWindowDisplay {
             await this.clossingPublicityButton.waitForClickable({ timeout: 10000 });
             await this.clossingPublicityButton.click();
         }
-        await this.sharedWindow.waitForExist({ timeout: 10000 });
+        await this.sharedWindow.waitForClickable({ timeout: 10000 });
         await browser.pause(500);
         await this.sharedWindow.click();
         
@@ -20,7 +20,7 @@ class SharedWindowDisplay {
         await this.TotalSharedPrice.getText();
     }
     async closeSharedWindow() {
-        await this.closeSharedButton.waitForExist({ timeout: 2000 });
+        await this.closeSharedButton.waitForClickable({ timeout: 2000 });
         await browser.pause(500);
         await this.closeSharedButton.click();
     }

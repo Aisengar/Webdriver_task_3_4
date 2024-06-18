@@ -148,11 +148,11 @@ exports.config = {
      * Gets executed once before all workers get launched.
      * @param {object} config wdio configuration object
      * @param {Array.<Object>} capabilities list of capabilities details
-     */
+     *//*
      onPrepare: function (config, capabilities) {
         const environment = process.env.NODE_ENV || 'dev';
         process.env.NODE_ENV = environment;
-     },
+     },*/
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service
      * for that worker as well as modify runtime environments in an async fashion.

@@ -7,7 +7,7 @@ const PricingCalculatorPage = require('../../po/page/cloud_google_add.page');
 
 
 describe('Smoke Test for Google Cloud Pricing Calculator', () => {
-    beforeEach(async () => {
+    before(async () => {
         await browser.url(testdata.urls.smokeUrl);
         await PricingCalculatorPage.addToEstimate();
         await PricingCalculatorPage.computeEngineClick();
