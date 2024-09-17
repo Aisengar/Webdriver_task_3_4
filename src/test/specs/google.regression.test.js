@@ -17,10 +17,19 @@ describe('Task 3 from QA auto testing', () => {
         await browser.reloadSession()
     })
     describe('Task 3 for google cloud test', () => {
-        it('Acces to google Google Cloud Platform Pricing Calculator page and fill all the data, check the total cost and the summary of the selections', async () => {
+        it('Acces to google Google Cloud Platform Pricing Calculator and serch for the google cloud calculator link', async () => {
             await GoogleHomePage.serch(testdata.searchInputs.googleInputWord);
+        }),
+        it('Acces the Google Cloud Link on the serch page',async () =>{
             await GoogleSerchPage.openCalculatorLink();
+        }),
+        it('Oppen the Products Menu for the Google Cloud Selecction',async()=>{
             await PricingCalculatorPage.addToEstimate();
+        }),
+        it('',async()=>{
+
+        }),
+        it('',async() =>{
             await PricingCalculatorPage.computeEngineClick();
             await PricingCalculatorPage.SelectionMenue();
             await PricingCalculatorPage.numberOfInstancesOption(testdata.options.numberOfInstancesOption);
